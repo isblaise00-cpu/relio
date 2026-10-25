@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Active (disabled = selected) -->
+    <item android:color="@color/relio_surface_variant" android:state_enabled="false" />
+    <!-- Inactive -->
+    <item android:color="@android:color/transparent" />
+</selector>

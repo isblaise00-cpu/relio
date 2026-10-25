@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/relio_bg"
+    android:orientation="vertical">
+
+    <!-- Header -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="16dp"
+        android:text="File webhook"
+        android:textColor="@color/relio_text_primary"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!-- Statistics / filter card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/statisticsCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="8dp"
+        app:cardBackgroundColor="@color/relio_surface"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="12dp">
+
+            <TextView
+                android:id="@+id/queueTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:letterSpacing="0.12"
+                android:text="@string/queue_status"
+                android:textAllCaps="true"
+                android:textColor="@color/relio_text_secondary"
+                android:textSize="10sp" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/filterChipGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:chipSpacingHorizontal="4dp"
+                app:chipSpacingVertical="0dp"
+                app:singleSelection="true"
+                app:selectionRequired="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filterAll"
+                    style="@style/CompactFilterChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Tous (0)" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filterPending"
+                    style="@style/CompactFilterChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="En attente (0)" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filterProcessing"
+                    style="@style/CompactFilterChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="En cours (0)" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filterCompleted"
+                    style="@style/CompactFilterChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Terminé (0)" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filterFailed"
+                    style="@style/CompactFilterChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Échoué (0)" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filterPermanentlyFailed"
+                    style="@style/CompactFilterChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Échec permanent (0)" />
+
+            </com.google.android.material.chip.ChipGroup>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- List / empty state -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/webhookQueueList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="80dp"
+            tools:listitem="@layout/item_webhook_queue" />
+
+        <LinearLayout
+            android:id="@+id/emptyState"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="gone">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_webhook"
+                app:tint="@color/relio_text_disabled" />
+
+            <TextView
+                android:id="@+id/emptyStateMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/webhook_queue_empty"
+                android:textColor="@color/relio_text_secondary"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/emptyFilterMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/relio_text_disabled"
+                android:textSize="12sp"
+                android:visibility="gone"
+                tools:text="Aucun élément échoué" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

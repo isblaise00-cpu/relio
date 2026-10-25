@@ -1,0 +1,84 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--
+        Theme.SmsGateway — always dark, Relio design system.
+        Parent is NoActionBar (no DayNight) so system dark mode has no effect.
+    -->
+    <style name="Theme.SmsGateway" parent="Theme.MaterialComponents.NoActionBar">
+        <!-- Primary -->
+        <item name="colorPrimary">@color/relio_accent</item>
+        <item name="colorPrimaryVariant">@color/relio_accent_dim</item>
+        <item name="colorOnPrimary">@color/relio_bg</item>
+
+        <!-- Secondary -->
+        <item name="colorSecondary">@color/relio_accent_dim</item>
+        <item name="colorSecondaryVariant">@color/relio_accent_dim</item>
+        <item name="colorOnSecondary">@color/relio_bg</item>
+
+        <!-- Background / Surface -->
+        <item name="android:colorBackground">@color/relio_bg</item>
+        <item name="colorSurface">@color/relio_surface</item>
+        <item name="colorOnSurface">@color/relio_text_primary</item>
+        <item name="colorOnBackground">@color/relio_text_primary</item>
+
+        <!-- Error -->
+        <item name="colorError">@color/relio_error</item>
+        <item name="colorOnError">@color/relio_bg</item>
+
+        <!-- Status / nav bar -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/relio_bg</item>
+        <item name="android:navigationBarColor">@color/relio_bg</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+
+        <!-- Text -->
+        <item name="android:textColorPrimary">@color/relio_text_primary</item>
+        <item name="android:textColorSecondary">@color/relio_text_secondary</item>
+
+        <!-- Chips -->
+        <item name="chipStyle">@style/RelioChip</item>
+    </style>
+
+    <!-- ─── Card style ─────────────────────────────────────────────────────── -->
+    <style name="RelioCard" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/relio_surface</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/relio_border</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- ─── Chip ───────────────────────────────────────────────────────────── -->
+    <style name="RelioChip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipBackgroundColor">@color/relio_surface_variant</item>
+        <item name="chipCornerRadius">6dp</item>
+        <item name="android:textColor">@color/relio_text_secondary</item>
+        <item name="chipMinHeight">28dp</item>
+        <item name="chipMinTouchTargetSize">32dp</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- ─── Compact filter chip (legacy) ──────────────────────────────────── -->
+    <style name="CompactFilterChip" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="chipMinHeight">28dp</item>
+        <item name="chipCornerRadius">14dp</item>
+        <item name="chipMinTouchTargetSize">32dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="checkedIconVisible">false</item>
+    </style>
+
+    <!-- ─── Legacy label / value styles ───────────────────────────────────── -->
+    <style name="HomeCardLabel" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">start</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body2</item>
+    </style>
+
+    <style name="HomeCardValue" parent="Widget.AppCompat.TextView">
+        <item name="android:lines">1</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">start</item>
+        <item name="android:layout_margin">4dp</item>
+    </style>
+</resources>

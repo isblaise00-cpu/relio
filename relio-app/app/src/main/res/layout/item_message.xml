@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:orientation="horizontal"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="14dp">
+
+    <!-- State icon + label column -->
+    <LinearLayout
+        android:layout_width="52dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageViewState"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_sms"
+            android:tint="@color/relio_text_secondary" />
+
+        <TextView
+            android:id="@+id/textViewState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:textColor="@color/relio_text_secondary"
+            android:textSize="9sp"
+            tools:text="Sent" />
+    </LinearLayout>
+
+    <!-- Message info column -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/ibm_plex_mono"
+            android:maxLines="1"
+            android:textColor="@color/relio_text_primary"
+            android:textSize="13sp"
+            tools:text="msg_a1b2c3d4" />
+
+        <TextView
+            android:id="@+id/textViewDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/ibm_plex_mono"
+            android:textColor="@color/relio_text_secondary"
+            android:textSize="11sp"
+            tools:text="17 oct. 2026 · 14:32" />
+    </LinearLayout>
+
+</LinearLayout>

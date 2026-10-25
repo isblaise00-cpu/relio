@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Downloadable font — IBM Plex Mono Regular via Google Fonts.
+    No binary files required; the font is fetched at app startup.
+    Fallback: monospace.
+-->
+<font-family xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:fontProviderAuthority="com.google.android.gms.fonts"
+    app:fontProviderPackage="com.google.android.gms"
+    app:fontProviderQuery="IBM Plex Mono"
+    app:fontProviderCerts="@array/com_google_android_gms_fonts_certs">
+</font-family>

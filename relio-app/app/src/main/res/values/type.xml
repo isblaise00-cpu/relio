@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Relio typography.
+    IBM Plex Mono is used exclusively for data values (amounts, IDs, timestamps).
+    All other text uses the system default sans-serif.
+-->
+<resources>
+    <!-- Amount / primary data value — large monospace number -->
+    <style name="TextAppearance.Relio.Mono.Amount" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:fontFamily">@font/ibm_plex_mono</item>
+        <item name="android:textColor">@color/relio_text_primary</item>
+        <item name="android:letterSpacing">-0.02</item>
+    </style>
+
+    <!-- Identifier / secondary mono value (txn_id, phone number, etc.) -->
+    <style name="TextAppearance.Relio.Mono.Body" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:fontFamily">@font/ibm_plex_mono</item>
+        <item name="android:textColor">@color/relio_text_secondary</item>
+    </style>
+
+    <!-- Timestamp in mono -->
+    <style name="TextAppearance.Relio.Mono.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:fontFamily">@font/ibm_plex_mono</item>
+        <item name="android:textColor">@color/relio_text_disabled</item>
+    </style>
+
+    <!-- Section header (sans-serif, uppercase tracking) -->
+    <style name="TextAppearance.Relio.Label" parent="TextAppearance.MaterialComponents.Overline">
+        <item name="android:textColor">@color/relio_text_secondary</item>
+        <item name="android:letterSpacing">0.12</item>
+    </style>
+
+    <!-- Card title -->
+    <style name="TextAppearance.Relio.Title" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textColor">@color/relio_text_primary</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+</resources>

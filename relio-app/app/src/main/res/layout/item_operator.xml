@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    app:cardBackgroundColor="@color/relio_surface"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <!-- Row 1: slot badge + carrier + active dot -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- Slot pill -->
+            <TextView
+                android:id="@+id/textSlotBadge"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_status_chip"
+                android:gravity="center"
+                android:textColor="@color/relio_accent"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="SIM1" />
+
+            <!-- Carrier name -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textCarrierName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/relio_text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Orange Burkina" />
+
+                <TextView
+                    android:id="@+id/textPhoneNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/ibm_plex_mono"
+                    android:textColor="@color/relio_text_secondary"
+                    android:textSize="13sp"
+                    tools:text="+226 70 00 00 00" />
+            </LinearLayout>
+
+            <!-- Active indicator -->
+            <View
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:background="@drawable/bg_status_dot"
+                android:backgroundTint="@color/relio_success" />
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp"
+            android:background="@color/relio_border" />
+
+        <!-- Row 2: stats -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <!-- Pending SMS -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="0.12"
+                    android:text="EN ATTENTE"
+                    android:textAllCaps="true"
+                    android:textColor="@color/relio_text_secondary"
+                    android:textSize="9sp" />
+
+                <TextView
+                    android:id="@+id/textPendingCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/ibm_plex_mono"
+                    android:textColor="@color/relio_text_primary"
+                    android:textSize="26sp"
+                    tools:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SMS"
+                    android:textColor="@color/relio_text_secondary"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- ICCID (SIM identifier) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="0.12"
+                    android:text="SLOT"
+                    android:textAllCaps="true"
+                    android:textColor="@color/relio_text_secondary"
+                    android:textSize="9sp" />
+
+                <TextView
+                    android:id="@+id/textSlotIndex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/ibm_plex_mono"
+                    android:textColor="@color/relio_text_primary"
+                    android:textSize="26sp"
+                    tools:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="index"
+                    android:textColor="@color/relio_text_secondary"
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

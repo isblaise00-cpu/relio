@@ -1,0 +1,15 @@
+package me.capcom.smsgateway.data
+
+import org.koin.dsl.module
+
+val dbModule = module {
+    single { AppDatabase.getDatabase(get()) }
+    single { get<AppDatabase>().messagesDao() }
+    single { get<AppDatabase>().incomingMessagesDao() }
+    single { get<AppDatabase>().webhooksDao() }
+    single { get<AppDatabase>().webhookQueueDao() }
+    single { get<AppDatabase>().inboxUploadDao() }
+    single { get<AppDatabase>().logDao() }
+    single { get<AppDatabase>().tokensDao() }
+    single { get<AppDatabase>().deviceKeysDao() }
+}

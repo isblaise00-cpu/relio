@@ -1,0 +1,183 @@
+package me.capcom.smsgateway.modules.webhooks.db
+
+import androidx.lifecycle.LiveData
+import androidx.room.*
+
+/**
+ * Data Access Object for webhook queue operations.
+ */
+@Dao
+interface WebhookQueueDao {
+
+    /**
+     * Insert a new webhook event into the queue.
+     */
+    @Insert(onConflict = OnConflictStrategy.ABORT)
+    suspend fun insertWebhook(webhook: WebhookQueueEntity)
+
+    /**
+     * Get webhook by id.
+     */
+    @Query("SELECT * FROM webhook_queue WHERE id = :id")
+    suspend fun getById(id: String): WebhookQueueEntity
+
+    /**
+     * Check if there are any due webhook events (where next_attempt has passed).
+     */
+    @Query("SELECT COUNT(*) FROM webhook_queue WHERE status IN ('pending', 'failed') AND next_attempt <= :currentTime")
+    suspend fun dueWebhooksCount(currentTime: Long = System.currentTimeMillis()): Long
+
+    /**
+     * Get the minimum next_attempt time for all pending/failed webhooks.
+     */
+    @Query("SELECT MIN(next_attempt) FROM webhook_queue WHERE status IN ('pending', 'failed')")
+    suspend fun getNextAttemptTime(): Long?
+
+    /**
+     * Get all pending webhook events ordered by next attempt time.
+     */
+    @Query(
+        """
+        SELECT * FROM webhook_queue 
+        WHERE status IN ("pending", "failed") AND next_attempt <= :currentTime 
+        ORDER BY next_attempt ASC 
+        LIMIT :limit
+    """
+    )
+    suspend fun getPendingWebhooks(
+        currentTime: Long = System.currentTimeMillis(),
+        limit: Int = 10
+    ): List<WebhookQueueEntity>
+
+    /**
+     * Mark webhook as processing.
+     */
+    @Query(
+        """
+        UPDATE webhook_queue 
+        SET status = "processing" 
+        WHERE id = :id
+    """
+    )
+    suspend fun markAsProcessing(
+        id: String,
+    )
+
+    /**
+     * Update retry information and set next attempt time.
+     */
+    @Query(
+        """
+        UPDATE webhook_queue 
+        SET status = "failed", 
+            retry_count = retry_count + 1, 
+            next_attempt = :nextAttempt,
+            last_error = :error
+        WHERE id = :id
+    """
+    )
+    suspend fun markAsFailed(
+        id: String,
+        nextAttempt: Long,
+        error: String?,
+    )
+
+    /**
+     * Mark webhook as completed.
+     */
+    @Query(
+        """
+        UPDATE webhook_queue 
+        SET status = "completed" 
+        WHERE id = :id
+    """
+    )
+    suspend fun markAsCompleted(
+        id: String,
+    )
+
+    /**
+     * Mark webhook as permanently failed.
+     */
+    @Query(
+        """
+        UPDATE webhook_queue 
+        SET status = "permanently_failed", last_error = :error
+        WHERE id = :id
+    """
+    )
+    suspend fun markAsPermanentlyFailed(
+        id: String,
+        error: String,
+    )
+
+    /**
+     * Get the most recent webhook queue entries for a single status (or all when null),
+     * bounded by limit. Filtering happens at the SQL level; no unbounded query.
+     */
+    @Query(
+        "SELECT * FROM webhook_queue WHERE (:status IS NULL OR status = :status) " +
+            "ORDER BY created_at DESC LIMIT :limit"
+    )
+    fun selectLastFiltered(limit: Int, status: String? = null): LiveData<List<WebhookQueueEntity>>
+
+    /**
+     * Get queue statistics.
+     */
+    @Query(
+        """
+        SELECT 
+            COUNT(*) as total,
+            SUM(CASE WHEN status = 'pending' THEN 1 ELSE 0 END) as pending,
+            SUM(CASE WHEN status = 'processing' THEN 1 ELSE 0 END) as processing,
+            SUM(CASE WHEN status = 'failed' THEN 1 ELSE 0 END) as failed,
+            SUM(CASE WHEN status = 'permanently_failed' THEN 1 ELSE 0 END) as permanentlyFailed,
+            SUM(CASE WHEN status = 'completed' THEN 1 ELSE 0 END) as completed
+        FROM webhook_queue
+    """
+    )
+    suspend fun getQueueStatistics(): WebhookQueueStatistics
+
+    /**
+     * Get IDs of old completed/permanently failed webhook entries
+     */
+    @Query("SELECT id FROM webhook_queue WHERE status IN ('completed', 'permanently_failed') AND created_at < :cutoffTime")
+    suspend fun getOldEntryIds(cutoffTime: Long): List<String>
+
+    /**
+     * Clean up old completed webhook events.
+     */
+    @Query(
+        """
+        DELETE FROM webhook_queue 
+        WHERE id IN (:ids)
+    """
+    )
+    suspend fun cleanupOldEntries(ids: List<String>)
+
+    /**
+     * Recover stuck processing webhooks (timed out workers).
+     */
+    @Query(
+        """
+        UPDATE webhook_queue 
+        SET status = "pending" 
+        WHERE status = "processing" AND next_attempt < :timeoutThreshold
+    """
+    )
+    suspend fun recoverStuckProcessingWebhooks(
+        timeoutThreshold: Long = System.currentTimeMillis() - (5 * 60 * 1000) // 5 minutes
+    )
+}
+
+/**
+ * Data class for queue statistics.
+ */
+data class WebhookQueueStatistics(
+    val total: Int,
+    val pending: Int,
+    val processing: Int,
+    val failed: Int,
+    val permanentlyFailed: Int,
+    val completed: Int
+)

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ─── Relio Brand Colors ─────────────────────────────────────────────── -->
+
+    <!-- Backgrounds -->
+    <color name="relio_bg">#FF000904</color>
+    <color name="relio_surface">#FF121512</color>
+    <color name="relio_surface_variant">#FF1C1E1B</color>
+
+    <!-- Accent / Primary -->
+    <color name="relio_accent">#FFD2D9B6</color>
+    <color name="relio_accent_dim">#FF8A9170</color>
+
+    <!-- Status -->
+    <color name="relio_success">#FF4CAF50</color>
+    <color name="relio_warning">#FFE08B74</color>
+    <color name="relio_error">#FFE08B71</color>
+
+    <!-- Text -->
+    <color name="relio_text_primary">#FFF2F1EC</color>
+    <color name="relio_text_secondary">#FF9C9C9C</color>
+    <color name="relio_text_disabled">#FF4A4A4A</color>
+
+    <!-- Borders / Dividers -->
+    <color name="relio_border">#FF2A2C29</color>
+
+    <!-- ─── Generic (keep for legacy references) ───────────────────────────── -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="grey_700">#FF616161</color>
+    <color name="progressBarOverlay">#33FFFFFF</color>
+    <color name="red_800">#FFD32F2F</color>
+
+    <!-- ─── Material aliases (used by themes.xml) ──────────────────────────── -->
+    <color name="colorPrimary">@color/relio_accent</color>
+    <color name="colorOnPrimary">@color/relio_bg</color>
+    <color name="colorPrimaryContainer">#FF2A2E22</color>
+    <color name="colorOnPrimaryContainer">@color/relio_accent</color>
+
+    <color name="colorSecondary">@color/relio_accent_dim</color>
+    <color name="colorOnSecondary">@color/relio_bg</color>
+    <color name="colorSecondaryContainer">#FF232620</color>
+    <color name="colorOnSecondaryContainer">@color/relio_text_primary</color>
+
+    <color name="colorTertiary">@color/relio_warning</color>
+    <color name="colorOnTertiary">@color/relio_bg</color>
+
+    <color name="colorError">@color/relio_error</color>
+    <color name="colorOnError">@color/relio_bg</color>
+
+    <color name="colorBackground">@color/relio_bg</color>
+    <color name="colorOnBackground">@color/relio_text_primary</color>
+
+    <color name="colorSurface">@color/relio_surface</color>
+    <color name="colorOnSurface">@color/relio_text_primary</color>
+    <color name="colorSurfaceVariant">@color/relio_surface_variant</color>
+    <color name="colorOnSurfaceVariant">@color/relio_text_secondary</color>
+
+    <color name="colorOutline">@color/relio_border</color>
+    <color name="colorOutlineVariant">#FF1E211D</color>
+</resources>

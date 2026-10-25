@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/relio_bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Page title -->
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/webhook_queue_detail_title"
+            android:textColor="@color/relio_text_primary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="UnusedAttribute" />
+
+        <!-- Not found state -->
+        <LinearLayout
+            android:id="@+id/notFoundLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="gone">
+
+            <TextView
+                android:id="@+id/notFoundText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/webhook_queue_entry_not_found"
+                android:textColor="@color/relio_text_secondary"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Detail card -->
+        <LinearLayout
+            android:id="@+id/detailLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ID -->
+            <TextView
+                android:id="@+id/textWebhookId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ibm_plex_mono"
+                android:textColor="@color/relio_accent"
+                android:textSize="13sp"
+                tools:text="wh_abc123" />
+
+            <!-- URL section -->
+            <TextView
+                android:id="@+id/labelUrl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:letterSpacing="0.12"
+                android:text="@string/webhook_queue_label_url"
+                android:textAllCaps="true"
+                android:textColor="@color/relio_text_secondary"
+                android:textSize="9sp" />
+
+            <TextView
+                android:id="@+id/textUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/relio_text_primary"
+                android:textSize="14sp"
+                tools:text="https://example.com/webhook" />
+
+            <!-- Status section -->
+            <TextView
+                android:id="@+id/labelStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:letterSpacing="0.12"
+                android:text="@string/webhook_queue_label_status"
+                android:textAllCaps="true"
+                android:textColor="@color/relio_text_secondary"
+                android:textSize="9sp" />
+
+            <TextView
+                android:id="@+id/textStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/relio_text_primary"
+                android:textSize="14sp"
+                tools:text="Failed" />
+
+            <!-- Retry count section -->
+            <TextView
+                android:id="@+id/labelRetryCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:letterSpacing="0.12"
+                android:text="@string/webhook_queue_label_retry_count"
+                android:textAllCaps="true"
+                android:textColor="@color/relio_text_secondary"
+                android:textSize="9sp" />
+
+            <TextView
+                android:id="@+id/textRetryCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/ibm_plex_mono"
+                android:textColor="@color/relio_text_primary"
+                android:textSize="14sp"
+                tools:text="2" />
+
+            <!-- Last error section -->
+            <TextView
+                android:id="@+id/labelLastError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:letterSpacing="0.12"
+                android:text="@string/webhook_queue_label_last_error"
+                android:textAllCaps="true"
+                android:textColor="@color/relio_text_secondary"
+                android:textSize="9sp" />
+
+            <TextView
+                android:id="@+id/textLastError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/relio_warning"
+                android:textSize="13sp"
+                tools:text="Connection refused" />
+
+            <!-- Created at section -->
+            <TextView
+                android:id="@+id/labelCreatedAt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:letterSpacing="0.12"
+                android:text="@string/webhook_queue_label_created_at"
+                android:textAllCaps="true"
+                android:textColor="@color/relio_text_secondary"
+                android:textSize="9sp" />
+
+            <TextView
+                android:id="@+id/textCreatedAt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/ibm_plex_mono"
+                android:textColor="@color/relio_text_primary"
+                android:textSize="13sp"
+                tools:text="2026-08-03 12:00" />
+
+            <!-- Next attempt section -->
+            <TextView
+                android:id="@+id/labelNextAttempt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:letterSpacing="0.12"
+                android:text="@string/webhook_queue_label_next_attempt"
+                android:textAllCaps="true"
+                android:textColor="@color/relio_text_secondary"
+                android:textSize="9sp" />
+
+            <TextView
+                android:id="@+id/textNextAttempt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/ibm_plex_mono"
+                android:textColor="@color/relio_text_primary"
+                android:textSize="13sp"
+                tools:text="2026-08-03 12:05" />
+
+            <!-- Payload section -->
+            <TextView
+                android:id="@+id/labelPayload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:letterSpacing="0.12"
+                android:text="@string/webhook_queue_label_payload"
+                android:textAllCaps="true"
+                android:textColor="@color/relio_text_secondary"
+                android:textSize="9sp" />
+
+            <TextView
+                android:id="@+id/textPayload"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="@color/relio_surface"
+                android:fontFamily="@font/ibm_plex_mono"
+                android:padding="12dp"
+                android:textColor="@color/relio_text_primary"
+                android:textSize="12sp"
+                tools:text='{"event":"message","from":"+1234567890"}' />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

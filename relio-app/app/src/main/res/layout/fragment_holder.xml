@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/relio_bg"
+    android:orientation="vertical"
+    tools:context=".ui.HolderFragment">
+
+    <!-- ─── Segmented tab bar ──────────────────────────────────────────────── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/relio_bg"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@color/relio_surface"
+            android:orientation="horizontal"
+            android:padding="3dp"
+            android:weightSum="2">
+
+            <!-- Sortants tab (sélectionné par défaut) -->
+            <Button
+                android:id="@+id/buttonOutgoing"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/tab_selector_bg"
+                android:enabled="false"
+                android:letterSpacing="0.05"
+                android:stateListAnimator="@null"
+                android:text="@string/outgoing_messages"
+                android:textColor="@color/tab_selector_text"
+                android:textSize="12sp" />
+
+            <!-- Entrants tab -->
+            <Button
+                android:id="@+id/buttonIncoming"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/tab_selector_bg"
+                android:letterSpacing="0.05"
+                android:stateListAnimator="@null"
+                android:text="@string/incoming_messages"
+                android:textColor="@color/tab_selector_text"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Fragment container -->
+    <FrameLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

@@ -1,0 +1,94 @@
+<resources>
+    <string-array name="limit_periods_titles">
+        <item>disabled</item>
+        <item>minute</item>
+        <item>30 minutes</item>
+        <item>hour</item>
+        <item>day</item>
+    </string-array>
+    <string-array name="limit_periods_values">
+        <item>Disabled</item>
+        <item>PerMinute</item>
+        <item>Per30Minutes</item>
+        <item>PerHour</item>
+        <item>PerDay</item>
+    </string-array>
+    <string-array name="sim_selection_modes_titles">
+        <item>OS default</item>
+        <item>Round robin</item>
+        <item>Random</item>
+    </string-array>
+    <string-array name="sim_selection_modes_values">
+        <item>OSDefault</item>
+        <item>RoundRobin</item>
+        <item>Random</item>
+    </string-array>
+    <string-array name="processing_order_titles">
+        <item>LIFO (newer messages first)</item>
+        <item>FIFO (older messages first)</item>
+    </string-array>
+    <string-array name="processing_order_values" translatable="false">
+        <item>LIFO</item>
+        <item>FIFO</item>
+    </string-array>
+    <string-array name="notification_channels_titles">
+        <item>Auto</item>
+        <item>SSE Only</item>
+    </string-array>
+    <string-array name="notification_channels_values" translatable="false">
+        <item>AUTO</item>
+        <item>SSE_ONLY</item>
+    </string-array>
+    <string-array name="language_entries">
+        <item>@string/language_system</item>
+        <item>English</item>
+        <item>العربية</item>
+        <item>Русский</item>
+        <item>中文</item>
+    </string-array>
+    <string-array name="language_values">
+        <item></item>
+        <item>en</item>
+        <item>ar</item>
+        <item>ru</item>
+        <item>zh</item>
+    </string-array>
+    <string-array name="rotation_intervals_titles">
+        <item>@string/disabled</item>
+        <item>30 days</item>
+        <item>60 days</item>
+        <item>90 days</item>
+    </string-array>
+    <string-array name="rotation_intervals_values" translatable="false">
+        <item>0</item>
+        <item>30</item>
+        <item>60</item>
+        <item>90</item>
+    </string-array>
+
+    <!-- Downloadable fonts preload list -->
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/ibm_plex_mono</item>
+    </array>
+
+    <!-- Google Fonts provider certificates (required for downloadable fonts) -->
+    <array name="com_google_android_gms_fonts_certs">
+        <item>@array/com_google_android_gms_fonts_certs_dev</item>
+        <item>@array/com_google_android_gms_fonts_certs_prod</item>
+    </array>
+    <string-array name="com_google_android_gms_fonts_certs_dev">
+        <item>
+            MIIEqDCCA5CgAwIBAgIJANWFuGx90071MA0GCSqGSIb3DQEBBAUAMIGUMQswCQYD
+            VQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5j
+            aXNjbzETMBEGA1UEChMKR29vZ2xlIEluYzEQMA4GA1UECxMHQW5kcm9pZDEQMA4G
+            A1UEAxMHQW5kcm9pZDEfMB0GCSqGSIb3DQEBAAUABIIBAAmMFLPGd7kMpEZFnJal
+        </item>
+    </string-array>
+    <string-array name="com_google_android_gms_fonts_certs_prod">
+        <item>
+            MIIEQzCCAyugAwIBAgIJAMLgh0ZkSjCNMA0GCSqGSIb3DQEBBAUAMHMxCzAJBgNV
+            BAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1Nb3VudGFpbiBW
+            aWV3MRQwEgYDVQQKEwtHb29nbGUgSW5jLjERMA8GA1UECxMIQW5kcm9pZDEOMAwG
+        </item>
+    </string-array>
+</resources>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/relio_bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="32dp"
+        android:paddingTop="72dp"
+        android:paddingBottom="48dp">
+
+        <!-- Logo / Brand -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ibm_plex_mono"
+            android:letterSpacing="0.15"
+            android:text="relio"
+            android:textColor="@color/relio_accent"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="48dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/relio_border" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="Associez cet appareil\nà votre marchand"
+            android:textColor="@color/relio_text_secondary"
+            android:textSize="15sp" />
+
+        <!-- ─── Device name ──────────────────────────────────────────────── -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:letterSpacing="0.12"
+            android:text="NOM DE L'APPAREIL"
+            android:textAllCaps="true"
+            android:textColor="@color/relio_text_secondary"
+            android:textSize="11sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutDeviceName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:boxBackgroundColor="@color/relio_surface"
+            app:boxStrokeColor="@color/relio_border"
+            app:boxStrokeWidth="1dp"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editDeviceName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="ex. SIM-principal"
+                android:inputType="text"
+                android:paddingVertical="14dp"
+                android:textColor="@color/relio_text_primary"
+                android:textColorHint="@color/relio_text_disabled"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- ─── Pairing code ─────────────────────────────────────────────── -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:letterSpacing="0.12"
+            android:text="CODE D'APPAIRAGE"
+            android:textAllCaps="true"
+            android:textColor="@color/relio_text_secondary"
+            android:textSize="11sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutPairingCode"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:boxBackgroundColor="@color/relio_surface"
+            app:boxStrokeColor="@color/relio_border"
+            app:boxStrokeWidth="1dp"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editPairingCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ibm_plex_mono"
+                android:hint="000000"
+                android:inputType="number"
+                android:letterSpacing="0.3"
+                android:maxLength="6"
+                android:paddingVertical="14dp"
+                android:textColor="@color/relio_text_primary"
+                android:textColorHint="@color/relio_text_disabled"
+                android:textSize="24sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- ─── Error message ────────────────────────────────────────────── -->
+        <TextView
+            android:id="@+id/textError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/relio_error"
+            android:textSize="13sp"
+            android:visibility="gone" />
+
+        <!-- ─── Pair button ──────────────────────────────────────────────── -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonPair"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/relio_accent"
+            android:text="Associer"
+            android:textColor="@color/relio_bg"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:cornerRadius="8dp" />
+
+        <!-- ─── Loading indicator ────────────────────────────────────────── -->
+        <ProgressBar
+            android:id="@+id/progressPairing"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="16dp"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/relio_accent"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</ScrollView>

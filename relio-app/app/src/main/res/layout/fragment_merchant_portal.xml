@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/relio_bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- ─── Mon compte ─────────────────────────────────────── -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/ibm_plex_mono"
+            android:letterSpacing="0.1"
+            android:text="@string/merchant_account"
+            android:textAllCaps="true"
+            android:textColor="@color/relio_text_secondary"
+            android:textSize="11sp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="@color/relio_surface"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Nom du marchand -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:letterSpacing="0.08"
+                    android:text="@string/merchant_name_label"
+                    android:textAllCaps="true"
+                    android:textColor="@color/relio_text_secondary"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/textMerchantName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/loading"
+                    android:textColor="@color/relio_text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Clé API -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:letterSpacing="0.08"
+                    android:text="@string/api_key_label"
+                    android:textAllCaps="true"
+                    android:textColor="@color/relio_text_secondary"
+                    android:textSize="10sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textApiKey"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/ibm_plex_mono"
+                        android:maxLines="1"
+                        android:text="@string/not_available"
+                        android:textColor="@color/relio_accent"
+                        android:textSize="13sp" />
+
+                    <ImageButton
+                        android:id="@+id/btnCopyApiKey"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_marginStart="8dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/api_key_label"
+                        android:src="@drawable/ic_copy"
+                        android:tint="@color/relio_text_secondary" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- ─── Webhooks ───────────────────────────────────────── -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/ibm_plex_mono"
+            android:letterSpacing="0.1"
+            android:text="@string/webhooks_section"
+            android:textAllCaps="true"
+            android:textColor="@color/relio_text_secondary"
+            android:textSize="11sp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="@color/relio_surface"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- URL Succès -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:letterSpacing="0.08"
+                    android:text="@string/webhook_success_label"
+                    android:textAllCaps="true"
+                    android:textColor="@color/relio_text_secondary"
+                    android:textSize="10sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:boxStrokeColor="@color/relio_text_secondary"
+                    app:hintTextColor="@color/relio_text_secondary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editWebhookSuccess"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/webhook_success_hint"
+                        android:inputType="textUri"
+                        android:textColor="@color/relio_text_primary"
+                        android:textSize="13sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- URL Échec -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:letterSpacing="0.08"
+                    android:text="@string/webhook_failure_label"
+                    android:textAllCaps="true"
+                    android:textColor="@color/relio_text_secondary"
+                    android:textSize="10sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:boxStrokeColor="@color/relio_text_secondary"
+                    app:hintTextColor="@color/relio_text_secondary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editWebhookFailure"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/webhook_failure_hint"
+                        android:inputType="textUri"
+                        android:textColor="@color/relio_text_primary"
+                        android:textSize="13sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Bouton Enregistrer -->
+                <Button
+                    android:id="@+id/btnSaveWebhooks"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="@string/save_webhooks"
+                    android:textColor="@color/relio_bg"
+                    app:backgroundTint="@color/relio_accent" />
+
+                <!-- Status enregistrement -->
+                <TextView
+                    android:id="@+id/textSaveStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:textColor="@color/relio_success"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- ─── Actions ────────────────────────────────────────── -->
+
+        <Button
+            android:id="@+id/btnAdvancedSettings"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="12dp"
+            android:text="@string/advanced_settings"
+            android:textColor="@color/relio_text_primary"
+            app:backgroundTint="@color/relio_surface"
+            app:strokeColor="@color/relio_text_secondary"
+            app:strokeWidth="1dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+        <Button
+            android:id="@+id/btnDisconnect"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/disconnect"
+            android:textColor="@color/relio_warning"
+            app:backgroundTint="@color/relio_surface"
+            app:strokeColor="@color/relio_warning"
+            app:strokeWidth="1dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+    </LinearLayout>
+
+</ScrollView>
